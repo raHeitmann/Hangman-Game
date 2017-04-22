@@ -1,8 +1,16 @@
 //how we keep track of score
 
+console.log("first thing we should see");
+
+
+alert("literally the first thing on the page");
+
+
 var correct = 0;
 
 var misses = 0;
+
+
 
 
 //an array within an array, that will hold our movie names
@@ -21,8 +29,9 @@ var movies = [
 
 //this will begin the game upon the pressing of space bar
 
-document.body.onkeyup = function(e){
-    if(e.keyCode == 32){
+alert("hopefully we get this far");
+
+
         	
 
  //generates a random y value to determine the move
@@ -30,15 +39,24 @@ document.body.onkeyup = function(e){
 
         var y = Math.floor(Math.random() * 5);
 
-
 //loops until correct equals amount of letters in movie
 
-    	for (var i = 0 ; correct < movies[y])
+    	for (var i = 0 ; correct < movies[y].length || misses === 5 ; i ++){
 
 
+    		 alert("I'm thinking of a movie! guess what it is!");
+    	
 
+    		function check (x)
+    		{
+    			if movies[y][i] == prompt();
+    				{
+    					correct = correct + 1 ;
+    				}
 
-
+    		}
 
     }
+}
+
 }
