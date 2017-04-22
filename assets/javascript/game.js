@@ -6,7 +6,7 @@ var correct = 0;
 
 var misses = 0;
 
-
+var totalCorrect = 0;
 
 
 //an array within an array, that will hold our movie names
@@ -31,11 +31,11 @@ var movies = [
  //generates a random y value to determine the move
 
 
-        var y = Math.floor(Math.random() * 5)
+        var y = Math.floor(Math.random() * 5);
 
 //loops until correct equals amount of letters in movie
 
-    	for (var i = 0  ; misses < 5 ; i ++)
+    	for (var i = 0  ; misses < 5 && totalCorrect < movies[y].length ; i ++)
     	{
 
  //resets the correct check at 0 for the next input
@@ -54,16 +54,17 @@ var movies = [
     		{
     			correct = 0;
 
-    			for (var j = 0 ; j < movies[y].length ; j ++)
+    			for (var j = 0 ; j < movies[y].length; j ++)
     			{
     				//if input matches any letter in movies[y], correct will be greater than 0
 
-	    			if (movies[y][j] == x)
+	    			if (movies[y][j] === x)
 	    				{
-	    					correct = correct + 1 ;
+	    					correct ++ ;
+	    					console.log(movies[y][j]);
+	    					totalCorrect ++ ;
 	    				}
 
-	    			
 	    		}
 	    			
 		//if correct is greater than 0 (at least one letter hit), will return as succes
@@ -85,7 +86,7 @@ var movies = [
     		check(prompt());
 
     		alert(misses);
-
+    		alert(totalCorrect);
     		
 
     }
