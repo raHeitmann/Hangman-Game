@@ -1,9 +1,5 @@
 //how we keep track of score
 
-console.log("first thing we should see");
-
-
-alert("literally the first thing on the page");
 
 
 var correct = 0;
@@ -29,8 +25,6 @@ var movies = [
 
 //this will begin the game upon the pressing of space bar
 
-alert("hopefully we get this far");
-
 
         	
 
@@ -41,10 +35,11 @@ alert("hopefully we get this far");
 
 //loops until correct equals amount of letters in movie
 
-    	for (var i = 0  ; correct < movies[y].length || misses === 5 ; i ++)
+    	for (var i = 0  ; misses < 5 ; i ++)
     	{
 
-    		correct = 0;
+ //resets the correct check at 0 for the next input
+    		
 
     		 alert("I'm thinking of a movie! guess what it is!");
     	
@@ -68,10 +63,10 @@ alert("hopefully we get this far");
 	    					correct = correct + 1 ;
 	    				}
 
-	    			//if correct is greater than 0 (at least one letter hit), will return as succe
+	    			
 	    		}
-	    			 //resets the correct check at 0 for the next input
-
+	    			
+		//if correct is greater than 0 (at least one letter hit), will return as succes
 		 	if (correct > 0 )
 			{
 				alert("you got that letter");
@@ -89,9 +84,13 @@ alert("hopefully we get this far");
 
     		check(prompt());
 
+    		alert(misses);
+
     		
 
     }
+
+    alert("game over!");
 
 
 
