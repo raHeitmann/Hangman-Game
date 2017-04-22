@@ -54,6 +54,8 @@ var movies = [
     		{
     			correct = 0;
 
+
+
     			for (var j = 0 ; j < movies[y].length; j ++)
     			{
     				//if input matches any letter in movies[y], correct will be greater than 0
@@ -63,6 +65,10 @@ var movies = [
 	    					correct ++ ;
 	    					console.log(movies[y][j]);
 	    					totalCorrect ++ ;
+
+
+	    
+
 	    				}
 
 	    		}
