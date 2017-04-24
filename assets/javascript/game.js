@@ -28,23 +28,15 @@ var movies = [
 
 
 
- //generates a random y value to determine the move
+ //RUNS GAME ,generates a random y value to determine the move
 
+function runGame() {
 
         var y = Math.floor(Math.random() * 5);
 
         console.log("I've chosen a movie! " + movies[y]);
 
 //loops until correct equals amount of letters in movie or misses = 5
-
-
-		function 
-
-    	for (var i = 0  ; misses < 5 && totalCorrect < movies[y].length ; i ++)
-    	{
-
- 
-    		
 
     		 console.log("I'm thinking of a movie! guess what it is!");
     	
@@ -55,8 +47,10 @@ var movies = [
     		alert(misses);
     		alert(totalCorrect);
     		
+    	
+    		return y;
+   		 };
 
-   		 }
 
     if (totalCorrect===movies[y].length) {
 
@@ -72,7 +66,7 @@ var movies = [
 					function check (x)
 					    		{
 
-					    			var guess = document.getElementByClass(guessLetter);
+					    			var guess = document.getElementsByClass("guessLetter");
 
 					    			correct = 0;
 
@@ -103,5 +97,6 @@ var movies = [
 								}
 						    			
 
-					    		}
+}
+
 
