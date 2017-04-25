@@ -52,12 +52,21 @@ var y = Math.floor(Math.random() * 5);
 
  console.log(movies[y]);
 
+
+
+
+
+
+
+
+
 		function check (x)
 		    		{
-
+		    			correct = 0;
+		    			
 		    			var length = movies[y].length;
 
-		    			correct = 0;
+		    			
 
 		    			for (var j = 0 ; j < length; j ++)
 		    			{
