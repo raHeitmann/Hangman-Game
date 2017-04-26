@@ -30,6 +30,7 @@ var movies = [
 
 function begin() {
 
+alert("we have begun");
 
 number = Math.floor(Math.random() * 5);
 
@@ -38,14 +39,14 @@ document.getElementById("guessLetter").addEventListener("keypress", check);
 return number;
 
 
-				for (i=0; misses < 5 && totalCorrect < movies[y].length)
+				for (i=0; misses < 5 && totalCorrect < movies[y].length; i++) {
 
+				alert("we are in the loop");
+				check("guessLetter");
 
+				}
 
 }
-
-
-
 
 //loops until correct equals amount of letters in movie or misses = 5
 
@@ -67,24 +68,14 @@ return number;
 			}
 
 
-   	
-
- 
-
  console.log(movies[y]);
-
-
-
-
-
-
-
 
 
 		function check (x)
 		    		{
 		    			correct = 0;
 
+		    			x = document.getElementById("guessLetter");
 		    			
 		    			
 		    			var length = movies[y].length;
@@ -92,8 +83,6 @@ return number;
 
 		    			for (var j = 0 ; j < length; j ++)
 		    			{
-
-		    			
 		    			//if input matches any letter in movies[y], correct will be greater than 0
 
 			    			if (movies[y][j] === x)
