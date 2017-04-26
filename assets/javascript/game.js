@@ -1,6 +1,6 @@
 //how we keep track of score
 
-
+window.onload = function () { alert("It's loaded!") }
 
 var correct = 0;
 
@@ -23,8 +23,19 @@ var movies = [
 ] ;
 
 
+document.getElementById('start').addEventListener('keypress', begin);
+
+
+function begin() {
+
+
 var y = Math.floor(Math.random() * 5);
 
+document.getElementById("guessLetter").addEventListener("keypress", check);
+
+
+
+}
 
 //loops until correct equals amount of letters in movie or misses = 5
 
@@ -65,7 +76,6 @@ var y = Math.floor(Math.random() * 5);
 		    			correct = 0;
 		    			
 		    			var length = movies[y].length;
-
 		    			
 
 		    			for (var j = 0 ; j < length; j ++)
