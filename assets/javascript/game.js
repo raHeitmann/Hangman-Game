@@ -8,7 +8,9 @@ var misses = 0;
 
 var totalCorrect = 0;
 
+var y = 0 ; 
 
+var number = 0;
 
 //an array within an array, that will hold our movie names
 
@@ -23,19 +25,27 @@ var movies = [
 ] ;
 
 
-document.getElementById('start').addEventListener('keypress', begin);
+//document.getElementById("start").addEventListener("keypress", begin);
 
 
 function begin() {
 
 
-var y = Math.floor(Math.random() * 5);
+number = Math.floor(Math.random() * 5);
 
 document.getElementById("guessLetter").addEventListener("keypress", check);
+
+return number;
+
+
+				for (i=0; misses < 5 && totalCorrect < movies[y].length)
 
 
 
 }
+
+
+
 
 //loops until correct equals amount of letters in movie or misses = 5
 
@@ -74,6 +84,8 @@ document.getElementById("guessLetter").addEventListener("keypress", check);
 		function check (x)
 		    		{
 		    			correct = 0;
+
+		    			
 		    			
 		    			var length = movies[y].length;
 		    			
