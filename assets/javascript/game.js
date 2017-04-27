@@ -31,12 +31,14 @@ var movies = [
 function begin() {
 
 alert("we have begun");
+alert(movies[y]);
 
 number = Math.floor(Math.random() * 5);
+y = number;
 
-document.getElementById("guessLetter").addEventListener("keypress", check);
 
-return number;
+
+
 
 
 				for (i=0; misses < 5 && totalCorrect < movies[y].length; i++) {
@@ -45,16 +47,6 @@ return number;
 				check("guessLetter");
 
 				}
-
-}
-
-//loops until correct equals amount of letters in movie or misses = 5
-
-
-     //here is our function that will check if the letter you typed is within the movie name
-
-   
-
 
     		if (totalCorrect===movies[y].length) {
 
@@ -71,24 +63,46 @@ return number;
  console.log(movies[y]);
 
 
+
+
+}
+
+//loops until correct equals amount of letters in movie or misses = 5
+
+
+     //here is our function that will check if the letter you typed is within the movie name
+
+   
+
+
+
+
 		function check (x)
 		    		{
 		    			correct = 0;
 
-		    			x = document.getElementById("guessLetter");
+		    			var x = document.getElementById("guessLetter");
+		    			x = toString(x);
 		    			
+
 		    			
 		    			var length = movies[y].length;
+
+		    			alert(x);
+
 		    			
 
 		    			for (var j = 0 ; j < length; j ++)
 		    			{
 		    			//if input matches any letter in movies[y], correct will be greater than 0
 
-			    			if (movies[y][j] === x)
+		    				alert("we are in the checking loop");
+
+
+			    			if (toString(movies[y][j]) === x)
 			    				{
 			    					correct ++ ;
-			    					alert(movies[y][j]);
+			    					
 			    					totalCorrect ++ ;
 			    				}
 						}
