@@ -6,11 +6,11 @@ var totalCorrect = 0;
 
 var totalMisses = 0;
 
-var games = document.getElementById("games");
 
-var count = document.getElementById("count");
 
-var total = document.getElementById("total");
+
+
+
 //an array within an array, that will hold our movie names
 
 
@@ -31,7 +31,9 @@ var movies = [
  function begin(){
  //generates a random y value to determine the move
 
- document.getElementById("games").innerHtml("Take a guess!");
+var games = document.getElementById("games");
+
+ games.innerHtml = "Take a guess!";
 
 
   var y = Math.floor(Math.random() * 5);	
@@ -79,33 +81,38 @@ document.getElementById("guessLetter").addEventListener("keyup", function(){
 
 			if (correct>0)
 			{
+				games.innerHTML = "you got that one!";
 				totalCorrect++;
 			}
 
-			else if (misses === movies[y].length)
+			else //if (misses === movies[y].length)
 			{
+				var count = document.getElementById("count");
 				totalMisses++;
-				games.innerHTML("you missed that one");
-				count.innerHTML("Misses: "+totalMisses);
+				games.innerHTML = "you missed that one";
+				count.innerHTML = "Misses: "+totalMisses;
 			}
-	    		
+
+			//RESETS OUR GUESS BOX AFTER THE CHECK LOOP
+	    var input = document.getElementById("guessLetter");
+	    input.value = "";
     		
 
     	if (totalCorrect === movies[y].length)
     		{
-    			games.innerHTML("you win!!!");
+    			games.innerHTML = "you win!!!";
 
 
 
     		}
     	else if (totalMisses === 5)
 	    	{
-	    		games.innerHTML("you lose!!!");
+	    		games.innerHTML = "you lose!!!";
 
 	    	}
     	
-
-    		total.innerHTML("you have missed "+totalMisses+"  <br>you have gotten "+totalCorrect+"out of the "+movies[y].length+" letters in this movie");  		
+	    	var total = document.getElementById("total");
+    		total.innerHTML = "you have missed "+totalMisses+"  <br>you have gotten "+totalCorrect+"out of the "+movies[y].length+" letters in this movie";  		
 
     
 			}
