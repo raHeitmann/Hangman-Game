@@ -24,9 +24,7 @@ var movies = [
 
 ] ;
 
-
 //document.getElementById("start").addEventListener("keypress", begin);
-
 
 function begin() {
 
@@ -36,17 +34,16 @@ alert("we have begun");
 number = Math.floor(Math.random() * 5);
 y = number;
 
+console.log(y);
+
 totalCorrect = 0;
 
 console.log(movies[y]);
 
 misses = 0;
 
-
-
-
-		var input = document.getElementById('guessLetter');
-		  input.addEventListener('onkeyup',function(){
+var input = document.getElementById('guessLetter');
+input.addEventListener('keypress',function(){
 
 		input = input.value;
 
@@ -99,15 +96,7 @@ misses = 0;
 
 							};
 						});
-					
-
-
-
-
-
-
-
-						
+							
 
     		if (totalCorrect===movies[y].length) {
 
@@ -123,16 +112,4 @@ misses = 0;
 
  console.log(movies[y]);
 
-
-
-
 }
-
-//loops until correct equals amount of letters in movie or misses = 5
-
-
-     //here is our function that will check if the letter you typed is within the movie name
-
-   
-
-
