@@ -1,18 +1,14 @@
-//how we keep track of score
-
-window.onload = function () { alert("It's loaded!") }
-
 var correct = 0;
 
 var misses = 0;
 
 var totalCorrect = 0;
 
-var y = 0 ; 
+var totalMisses = 0;
 
-var number = 0;
 
 //an array within an array, that will hold our movie names
+
 
 var movies = [
 	["p","u","l","p","f","i","c","t","i","o","n"],
@@ -24,92 +20,88 @@ var movies = [
 
 ] ;
 
-//document.getElementById("start").addEventListener("keypress", begin);
 
-function begin() {
-
-alert("we have begun");
+//this will begin the game upon the pressing of space bar
 
 
-number = Math.floor(Math.random() * 5);
-y = number;
-
-console.log(y);
-
-totalCorrect = 0;
-
-console.log(movies[y]);
-
-misses = 0;
-
-var input = document.getElementById('guessLetter');
-input.addEventListener('keypress',function(){
-
-		input = input.value;
-
-		console.log(input);
-
-		check(input);
-
-				function check (x)
-				    		{
-				    		
-			    			correct = 0;
-
-			    			var length = movies[y].length;
-
-			    			console.log(x + "this should be the letter you inputted");
-
-				    			for (var j = 0 ; j < length; j ++)
-				    			{
-				    			//if input matches any letter in movies[y], correct will be greater than 0
-
-				    				console.log("we are in the checking loop");
+ function begin(){
+ //generates a random y value to determine the move
 
 
-					    			if (toString(movies[y][j]) === x)
-					    				{
-					    					correct ++ ;
-					    					
-					    					totalCorrect ++ ;
-					    				}
-								}
-					    			
-						//if correct is greater than 0 (at least one letter hit), will return as succes
-						 	if (correct > 0 )
-							{
-								alert("you got that letter");
-							}
+  var y = Math.floor(Math.random() * 5);	
 
-							//otherwise, adds one to misses, will end when misses = 5
+  alert("I'm thinking of a movie! guess what it is!");
+    	
+  alert(movies[y]);
 
-						else
-							{
-								misses = misses + 1;
-								alert("you missed one!")
-							}
-					    			
+document.getElementById("guessLetter").addEventListener("keyup", function(){
+ 
+    var x = document.getElementById("guessLetter");
+    x.value = x.value.toLowerCase();
+
+    console.log(x.value);
+
+    check(x.value);
+});
+
+    		function check (x)
+    		{
+    			
+
+    			console.log(x);
 
 
-					    				alert(misses);
-										alert(totalCorrect);
 
-							};
-						});
-							
+    			for (var j = 0 ; j < movies[y].length; j ++)
+    			{
+    				//if input matches any letter in movies[y], correct will be greater than 0
+    	
+	    			if (movies[y][j] === x)
+	    				{
 
-    		if (totalCorrect===movies[y].length) {
+	    					correct++;
+	    					console.log(movies[y][j]);
+	    					
+	    				}
+	    				
+					else 
+						{
+							misses++;
+						}
 
-		    	alert("you win!");
-		    }
+				}
 
-		    else if (misses===5)
-		    {
-
-			    alert("you lose!"); 
+			if (correct>0)
+			{
+				totalCorrect++;
 			}
 
+			else if (misses === movies[y].length)
+			{
+				totalMisses++;
+				alert("you missed that one");
+			}
+	    		
+    		
 
- console.log(movies[y]);
+    	if (totalCorrect === movies[y].length)
+    		{
+    			alert("you win!!!");
 
-}
+
+
+    		}
+    	else if (totalMisses === 5)
+	    	{
+	    		alert("you lose!!!");
+
+	    	}
+    	
+
+    		alert(totalMisses);
+    		alert(totalCorrect);  		
+
+    
+			}
+
+ }   
