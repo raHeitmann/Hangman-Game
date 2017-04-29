@@ -35,7 +35,11 @@ var movies = [
 totalMisses=0;
 totalCorrect=0;
 misses = 0;
+correct = 0;
 guessedArray = [];
+guessCount=0;
+underscores = '';
+y=0;
 
 count.innerHTML = "Misses: "+totalMisses;
 total.innerHTML = "you have missed "+totalMisses+"  <br>you have gotten "+totalCorrect+" correct so far";
@@ -136,6 +140,7 @@ x.value = "";
 					else 
 						{
 							misses++;
+							console.log(misses);
 						}
 
 				}
