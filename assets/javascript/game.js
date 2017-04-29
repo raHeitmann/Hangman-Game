@@ -35,6 +35,10 @@ var games = document.getElementById("games");
 
  games.innerHtml = "Take a guess!";
 
+ var guessedArray = [];
+
+ console.log("this should be letters guessed "+guessedArray.value);
+
 
   var y = Math.floor(Math.random() * 5);	
 
@@ -59,17 +63,14 @@ document.getElementById("guessLetter").addEventListener("keyup", function(){
     			console.log(x);
 
 
-
     			for (var j = 0 ; j < movies[y].length; j ++)
     			{
     				//if input matches any letter in movies[y], correct will be greater than 0
     	
 	    			if (movies[y][j] === x)
 	    				{
-
 	    					correct++;
 	    					console.log(movies[y][j]);
-	    					
 	    				}
 	    				
 					else 
@@ -83,6 +84,7 @@ document.getElementById("guessLetter").addEventListener("keyup", function(){
 			{
 				games.innerHTML = "you got that one!";
 				totalCorrect++;
+				correct = 0;
 			}
 
 			else //if (misses === movies[y].length)
@@ -95,6 +97,10 @@ document.getElementById("guessLetter").addEventListener("keyup", function(){
 
 			//RESETS OUR GUESS BOX AFTER THE CHECK LOOP
 	    var input = document.getElementById("guessLetter");
+	   	
+	   	guessedArray.push(input.value);
+	   	var guessedDiv = document.getElementById("guessed");
+	   	guessedDiv.innerHTML = "Letters guessed: "+guessedArray;
 	    input.value = "";
     		
 

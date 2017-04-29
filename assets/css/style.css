@@ -26,3 +26,7 @@ body {
 	margin: 2px;
 	padding-top:5px; 
 }
+
+#count {
+	color:red;
+}
