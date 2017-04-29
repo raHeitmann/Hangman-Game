@@ -29,7 +29,10 @@ var movies = [
 
 
  function begin(){
- //generates a random y value to determine the move
+
+//resets the score
+totalMisses=0;
+totalCorrect=0;
 
 var games = document.getElementById("games");
 
@@ -39,7 +42,7 @@ var games = document.getElementById("games");
 
  console.log("this should be letters guessed "+guessedArray.value);
 
-
+ //generates a random y value to determine the move
   var y = Math.floor(Math.random() * 5);	
 
   alert("I'm thinking of a movie! guess what it is!");
@@ -53,12 +56,37 @@ document.getElementById("guessLetter").addEventListener("keyup", function(){
 
     console.log(x.value);
 
-    check(x.value);
+    var guessCount = 0;
+
+    for (var i = 0 ; i < guessedArray.length; i++)
+    {
+    	
+	   	 if (x.value===guessedArray[i])
+		    {
+		    	games.innerHTML = "you've already guessed that one!" ;
+		    	guessCount++;
+		    	
+			}
+	}
+
+	if (guessCount === 0)
+	{
+		check(x.value);
+	}
+
+
+guessCount = 0;
+
+
+x.value = "";
+
+
 });
 
     		function check (x)
     		{
     			
+
 
     			console.log(x);
 
@@ -106,14 +134,14 @@ document.getElementById("guessLetter").addEventListener("keyup", function(){
 
     	if (totalCorrect === movies[y].length)
     		{
-    			games.innerHTML = "you win!!!";
-
-
+    			confirm("you win!!! press return to begin a new game");
+    			begin();
 
     		}
     	else if (totalMisses === 5)
 	    	{
-	    		games.innerHTML = "you lose!!!";
+	    		confirm("you lose... press return to begin a new game");
+    			begin();
 
 	    	}
     	
