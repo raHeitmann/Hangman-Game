@@ -6,6 +6,7 @@ var totalCorrect = 0;
 
 var totalMisses = 0;
 
+ var guessedArray = [];
 
 
 
@@ -33,12 +34,15 @@ var movies = [
 //resets the score
 totalMisses=0;
 totalCorrect=0;
+misses = 0;
+guessedArray = [];
+
+	var guessedDiv = document.getElementById("guessed");
+	   	guessedDiv.innerHTML = "Letters guessed: "+guessedArray;
 
 var games = document.getElementById("games");
 
  games.innerHtml = "Take a guess!";
-
- var guessedArray = [];
 
  console.log("this should be letters guessed "+guessedArray.value);
 
@@ -99,6 +103,7 @@ x.value = "";
 	    				{
 	    					correct++;
 	    					console.log(movies[y][j]);
+	    					totalCorrect++;
 	    				}
 	    				
 					else 
@@ -111,7 +116,7 @@ x.value = "";
 			if (correct>0)
 			{
 				games.innerHTML = "you got that one!";
-				totalCorrect++;
+				
 				correct = 0;
 			}
 
@@ -127,7 +132,7 @@ x.value = "";
 	    var input = document.getElementById("guessLetter");
 	   	
 	   	guessedArray.push(input.value);
-	   	var guessedDiv = document.getElementById("guessed");
+	   	
 	   	guessedDiv.innerHTML = "Letters guessed: "+guessedArray;
 	    input.value = "";
     		
@@ -135,12 +140,14 @@ x.value = "";
     	if (totalCorrect === movies[y].length)
     		{
     			confirm("you win!!! press return to begin a new game");
+    			 input.value = "";
     			begin();
 
     		}
     	else if (totalMisses === 5)
 	    	{
 	    		confirm("you lose... press return to begin a new game");
+	    		 input.value = "";
     			begin();
 
 	    	}
