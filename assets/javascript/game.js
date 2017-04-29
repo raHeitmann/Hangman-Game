@@ -37,6 +37,9 @@ totalCorrect=0;
 misses = 0;
 guessedArray = [];
 
+count.innerHTML = "Misses: "+totalMisses;
+total.innerHTML = "you have missed "+totalMisses+"  <br>you have gotten "+totalCorrect+" correct so far";
+
 	var guessedDiv = document.getElementById("guessed");
 	   	guessedDiv.innerHTML = "Letters guessed: "+guessedArray;
 
@@ -49,14 +52,30 @@ var games = document.getElementById("games");
  //generates a random y value to determine the move
   var y = Math.floor(Math.random() * 5);	
 
-  alert("I'm thinking of a movie! guess what it is!");
+  //alert("I'm thinking of a movie! guess what it is!");
+
+
+//here is our display set up
+	var word = "";
+    word = movies[y].toString();
+ console.log(movies[y].toString());
+  var underscores = word.split("").map(function(){return "_"});
+
+  var spaces = document.getElementById("spaces");
+  spaces.innerHTML = underscores;
+
+  
     	
-  alert(movies[y]);
+  
 
 document.getElementById("guessLetter").addEventListener("keyup", function(){
  
+
+
     var x = document.getElementById("guessLetter");
     x.value = x.value.toLowerCase();
+
+
 
     console.log(x.value);
 
@@ -89,7 +108,15 @@ x.value = "";
 
     		function check (x)
     		{
-    			
+    			var index = word.indexOf(x);
+			    while(index > -1)
+			    {
+
+			    	underscores[index] = x;
+			    	var index = word.indexOf(x, index+1);
+			    	spaces.innerHTML = underscores;
+
+			    }
 
 
     			console.log(x);
@@ -137,23 +164,22 @@ x.value = "";
 	    input.value = "";
     		
 
+
     	if (totalCorrect === movies[y].length)
     		{
-    			confirm("you win!!! press return to begin a new game");
-    			 input.value = "";
-    			begin();
-
+    			input.value = "";
+    			confirm("you win!!! press start to begin a new game");
+    			
     		}
     	else if (totalMisses === 5)
 	    	{
-	    		confirm("you lose... press return to begin a new game");
-	    		 input.value = "";
-    			begin();
-
+	    		input.value = "";
+	    		confirm("you lose... press start to begin a new game");
+    			
 	    	}
     	
 	    	var total = document.getElementById("total");
-    		total.innerHTML = "you have missed "+totalMisses+"  <br>you have gotten "+totalCorrect+"out of the "+movies[y].length+" letters in this movie";  		
+    		total.innerHTML = "you have missed "+totalMisses+"  <br>you have gotten "+totalCorrect+" out of the "+movies[y].length+" letters in this movie";  		
 
     
 			}
